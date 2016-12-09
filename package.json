@@ -9,9 +9,9 @@
   "private": true,
   "scripts": {
     "clean": "rimraf dist",
-    "start": "npm run dev",
+    "start": "yarn run dev",
     "dev": "cross-env DEBUG=app:* NODE_ENV=development babel-node build/devServer",
-    "build:prod": "npm run clean & NODE_ENV=production webpack --config build/webpack.prod.config.js --no-colors",
+    "build:prod": "yarn run clean & NODE_ENV=production webpack --config build/webpack.prod.config.js --no-colors",
     "build:dev": "cross-env NODE_ENV=development webpack --config build/webpack.dev.config.js"
   },
   "devDependencies": {

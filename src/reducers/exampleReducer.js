@@ -9,7 +9,7 @@ const exampleReducerRecord = Immutable.Record({
 export default (state = initialState, action) => {
     switch (action.type) {
         case EXAMPLE_ACTIONS.EXAMPLE: {
-            return state.set("example", true);
+            return state.set("example", action.bool);
         }
 
         default:
