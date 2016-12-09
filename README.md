@@ -11,10 +11,15 @@ Navigate to folder of your choice:
 Install Yarn:
 
 1) Run **npm install yarn** inside the directory you cloned the project
+
 or
+
 2) install using brew
 
 Inside your project directory run:
 
-    yarn or yarn install
-    yarn start  //starts a local webserver on http://localhost:1658
+    1) yarn install
+    
+    2) yarn start  
+
+    //starts a local webserver on http://localhost:1658
