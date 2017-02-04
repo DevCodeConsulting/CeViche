@@ -3,7 +3,7 @@ import shouldPureComponentUpdate                                from "react-pure
 
 import "./ResumeView.scss";
 
-class CvView extends React.Component {
+class ResumeView extends React.Component {
     constructor(...props) {
         super(...props);
         this.shouldComponentUpdate = shouldPureComponentUpdate.bind(this);
@@ -11,11 +11,11 @@ class CvView extends React.Component {
 
     render () {
         return (
-            <div className="cv-view-container">
+            <div className="resume-view-container">
                 <h1>Resume view</h1>
             </div>
         );
     }
 }
 
-export default CvView;
+export default ResumeView;
