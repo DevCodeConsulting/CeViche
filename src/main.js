@@ -4,6 +4,7 @@ import { Provider }                                             from "react-redu
 import createBrowserHistory                                     from "history/lib/createBrowserHistory";
 import useRouterHistory                                         from "react-router/lib/useRouterHistory";
 import { syncHistoryWithStore }                                 from "react-router-redux";
+import MuiThemeProvider                                         from 'material-ui/styles/MuiThemeProvider';
 import makeRoutes                                               from "./infrastructure/routes";
 import axios                                                    from "axios";
 
@@ -37,7 +38,9 @@ const routes = makeRoutes(history, store);
 // React application to the DOM!
 ReactDOM.render(
     <Provider store={store}>
+      <MuiThemeProvider>
         {routes}
+      </MuiThemeProvider>
     </Provider>,
     document.getElementById("root")
 );

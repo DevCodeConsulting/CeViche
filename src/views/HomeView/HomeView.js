@@ -1,7 +1,8 @@
 import React                                                    from "react";
 import shouldPureComponentUpdate                                from "react-pure-render/function";
-
+import LayoutComponent                                          from "../../components/LayoutComponent/LayoutComponent";
 import "./HomeView.scss";
+import AppBar from 'material-ui/AppBar';
 
 class HomeView extends React.Component {
     constructor(...props) {
@@ -10,12 +11,8 @@ class HomeView extends React.Component {
     }
 
     render () {
-        return (
-            <div className="home-view-container">
-                <h1>Hello World!</h1>
-            </div>
-        );
+        return <AppBar title="Title" iconClassNameRight="muidocs-icon-navigation-expand-more" />
     }
 }
 
-export default HomeView;
+export default () => (<AppBar title="Title" iconClassNameRight="muidocs-icon-navigation-expand-more"/>)
