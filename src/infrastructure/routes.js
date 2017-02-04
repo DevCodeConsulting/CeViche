@@ -8,7 +8,7 @@ import Redirect                                                 from "react-rout
 import HomeView                                                 from "~/views/HomeView/HomeView";
 import ConsultantsListView                                      from "~/views/ConsultantsListView/ConsultantsListView";
 import ConsultantDetailView                                     from "~/views/ConsultantDetailView/ConsultantDetailView";
-import CvView                                                   from "~/views/CvView/CvView";
+import ResumeView                                               from "~/views/ResumeView/ResumeView";
 
 export default (history, store) => {
 
@@ -18,7 +18,7 @@ export default (history, store) => {
 
             <Route name="Consultants" staticName={true} path="/consultants"  component={ConsultantsListView} />
             <Route name="Consultant Details" staticName={true} path="/consultant-details/:consultant"  component={ConsultantDetailView} />
-            <Route name="CV" staticName={true} path="/cv/:consultant"  component={CvView} />
+            <Route name="Resume" staticName={true} path="/resume/:consultant"  component={ResumeView} />
         </Router>
     );
 };
