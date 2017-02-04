@@ -2,13 +2,22 @@ import React, { Component } from 'react'
 import AppBar from 'material-ui/AppBar'
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
-import Link from 'react-router/lib/Link'
+import { push } from 'react-router-redux'
 
 export default class LayoutComponent extends Component {
   constructor () {
     super();
     this.state = { drawerIsOpen: false }
     this.handleHamburgerTouch = this.handleHamburgerTouch.bind(this);
+    this.handleMenuItemTap = this.handleMenuItemTap.bind(this);
+  }
+
+  handleMenuItemTap(data) {
+    return () => {
+      //FIXME Make navigation work
+      console.log('pushing', data)
+      push(data.path)
+    }
   }
 
   handleHamburgerTouch() {
@@ -18,11 +27,13 @@ export default class LayoutComponent extends Component {
   render () {
 
     const menuItems = [
-      {name: 'Resume', path: 'resume'},
-      {name: 'Consultants', path: 'consultants'},
-      {name: 'Consultants Details', path: 'consultant-details'}
+      {name: 'Resume', path: '/resume'},
+      {name: 'Consultants', path: '/consultants'},
+      {name: 'Consultants Details', path: '/consultant-details'}
     ].map((sectionDetails) => (
-        <Link to={sectionDetails.path}><MenuItem key={sectionDetails.name}>{sectionDetails.name}</MenuItem></Link>
+        <MenuItem key={sectionDetails.name} onTouchTap={this.handleMenuItemTap(sectionDetails)}>
+          {sectionDetails.name}
+        </MenuItem>
       )
     )
 
