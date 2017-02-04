@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import AppBar from 'material-ui/AppBar'
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
+import Link from 'react-router/lib/Link'
 
 export default class LayoutComponent extends Component {
   constructor () {
@@ -15,6 +16,16 @@ export default class LayoutComponent extends Component {
   }
 
   render () {
+
+    const menuItems = [
+      {name: 'Resume', path: 'resume'},
+      {name: 'Consultants', path: 'consultants'},
+      {name: 'Consultants Details', path: 'consultant-details'}
+    ].map((sectionDetails) => (
+        <Link to={sectionDetails.path}><MenuItem key={sectionDetails.name}>{sectionDetails.name}</MenuItem></Link>
+      )
+    )
+
     return (
       <div>
         <AppBar title="Title"
@@ -22,9 +33,7 @@ export default class LayoutComponent extends Component {
           onLeftIconButtonTouchTap={this.handleHamburgerTouch}
           />
         <Drawer open={this.state.drawerIsOpen}>
-          <MenuItem>Resume</MenuItem>
-          <MenuItem>Consultants</MenuItem>
-          <MenuItem>Consultants Details</MenuItem>
+          {menuItems}
         </Drawer>
         {this.props.children}
       </div>
