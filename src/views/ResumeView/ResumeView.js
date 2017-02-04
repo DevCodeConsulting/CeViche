@@ -29,9 +29,6 @@ class ResumeView extends React.Component {
         const competence = this.props.resumeData.competence
 
         return competence.map((comp, i) => {
-            console.log(comp.name);
-            console.log(comp.skillevel);
-            console.log(comp.category);
             return (
                 <div key={i}>
                     <h3>{comp.name}</h3>
