@@ -1,7 +1,7 @@
 import React                                                    from "react";
 import shouldPureComponentUpdate                                from "react-pure-render/function";
 
-import "./CvView.scss";
+import "./ResumeView.scss";
 
 class CvView extends React.Component {
     constructor(...props) {
@@ -12,7 +12,7 @@ class CvView extends React.Component {
     render () {
         return (
             <div className="cv-view-container">
-                <h1>CV view</h1>
+                <h1>Resume view</h1>
             </div>
         );
     }
