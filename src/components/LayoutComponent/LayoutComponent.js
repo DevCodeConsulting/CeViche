@@ -39,6 +39,7 @@ export class LayoutComponent extends Component {
         {this.props.children}
       </div>
     )
+    
   }
 }
 
