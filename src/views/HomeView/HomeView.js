@@ -1,6 +1,6 @@
 import React                                                    from "react";
 import shouldPureComponentUpdate                                from "react-pure-render/function";
-import LayoutComponent                                          from "../../components/LayoutComponent/LayoutComponent";
+import LayoutComponent                                      from "../../components/LayoutComponent/LayoutComponent";
 import "./HomeView.scss";
 
 class HomeView extends React.Component {
