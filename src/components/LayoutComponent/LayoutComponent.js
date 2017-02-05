@@ -7,22 +7,12 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 export class LayoutComponent extends Component {
-  constructor () {
-    super();
-    this.state = { drawerIsOpen: false }
-    this.handleHamburgerTouch = this.handleHamburgerTouch.bind(this);
-    this.handleMenuItemTap = this.handleMenuItemTap.bind(this);
-  }
 
-  handleMenuItemTap(data) {
-    return () => {
-      this.props.push(data.path)
-    }
-  }
+  state = { drawerIsOpen: false }
 
-  handleHamburgerTouch() {
-    this.setState({drawerIsOpen: !this.state.drawerIsOpen});
-  }
+  handleMenuItemTap = data => () => { this.props.push(data.path) }
+
+  handleHamburgerTouch = () => this.setState({drawerIsOpen: !this.state.drawerIsOpen});
 
   render () {
 
@@ -58,7 +48,5 @@ LayoutComponent.propTypes = {
 
 export default connect(
   state => state,
-  dispatch => {
-    return { push: path => dispatch(push(path))}
-  }
+  dispatch => ({ push: path => dispatch(push(path))})
 )(LayoutComponent)
