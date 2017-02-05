@@ -4,7 +4,7 @@ const _MOCKED_RESUME_DATA_ = {
 	person : {
 		name : "Jens Hoffmann Axén",
 		dateOfBirth : "1968-04-27",
-		summary : "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+		summary : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras auctor interdum orci, vestibulum ultrices augue tincidunt at. Integer tristique lorem nunc. Donec non urna in nisi euismod dignissim sit amet non nisl.",
 		branch : ["Finans", "Försäkring"]
 	},
 	competence : [
