@@ -1,28 +1,21 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import AppBar from 'material-ui/AppBar'
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import { push } from 'react-router-redux'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
-export default class LayoutComponent extends Component {
-  constructor () {
-    super();
-    this.state = { drawerIsOpen: false }
-    this.handleHamburgerTouch = this.handleHamburgerTouch.bind(this);
-    this.handleMenuItemTap = this.handleMenuItemTap.bind(this);
+export class LayoutComponent extends Component {
+
+  state = { drawerIsOpen: false }
+
+  handleMenuItemTap = data => () => {
+    this.setState({ drawerIsOpen: false })
+    this.props.push(data.path)
   }
 
-  handleMenuItemTap(data) {
-    return () => {
-      //FIXME Make navigation work
-      console.log('pushing', data)
-      push(data.path)
-    }
-  }
-
-  handleHamburgerTouch() {
-    this.setState({drawerIsOpen: !this.state.drawerIsOpen});
-  }
+  handleHamburgerTouch = () => this.setState({drawerIsOpen: !this.state.drawerIsOpen});
 
   render () {
 
@@ -49,5 +42,15 @@ export default class LayoutComponent extends Component {
         {this.props.children}
       </div>
     )
+
   }
 }
+
+LayoutComponent.propTypes = {
+  push: PropTypes.func.isRequired
+}
+
+export default connect(
+  state => state,
+  dispatch => ({ push: path => dispatch(push(path))})
+)(LayoutComponent)
