@@ -1,7 +1,15 @@
 import React                                                                        from "react";
+import { connect }                                                                  from "react-redux";
 import shouldPureComponentUpdate                                                    from "react-pure-render/function";
+import * as ConsultantListActions                                                   from "~/actions/consultantListActions";
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 import "./ConsultantListView.scss";
+
+function mapStateToProperties(store) {
+    return {
+        consultantListData: store.consultantListReducer
+    };
+}
 
 class ConsultantListView extends React.Component {
     constructor(...props) {
@@ -12,6 +20,10 @@ class ConsultantListView extends React.Component {
             enableSelectAll: false,
             showCheckboxes: false
         }
+    }
+
+    componentDidMount() {
+        this.props.setResumeData();
     }
 
     render () {
@@ -65,4 +77,4 @@ class ConsultantListView extends React.Component {
     }
 }
 
-export default ConsultantListView;
+export default connect (mapStateToProperties, ConsultantListActions)(ConsultantListView);

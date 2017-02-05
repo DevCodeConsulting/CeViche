@@ -2,36 +2,19 @@ import { EXAMPLE_ACTIONS }                                      from '~/infrastr
 import Immutable                                                from 'immutable';
 
 const consultantListReducerRecord = Immutable.Record({
-        consultants: [
-            {
-                name: 'Simon Solders',
-                title: 'Frontend developer',
-                currentContract: {
-                    name: 'Ericsson',
-                    ends: '2017-04-01'
-                },
-                name: 'Fabian Östlund',
-                title: 'Frontend developer',
-                currentContract: {
-                    name: 'Ericsson',
-                    ends: '2017-06-15'
-                },
-                name: 'Martin Blodau',
-                title: 'Frontend developer',
-                currentContract: {
-                    name: 'Ooyala',
-                    ends: '2017-09-01'
-                },
-                name: 'Erik Wallin',
-                title: 'System developer',
-                currentContract: {
-                    name: 'Peas & Understanding',
-                    ends: '2018-01-01'
-                }                
-            }
-        ]
+        consultants: [] // each item should be a consultantReducerRecord
+    }),
+    consultantReducerRecord = Immutable.Record({
+        name: null,
+        title: null,
+        currentContract: {
+            name: null,
+            ends: null
+        }                
     }),
     initialState = new consultantListReducerRecord();
+
+//TODO - Martin Blodau: Continue here. Add action and function for connecting the data to the state
 
 export default (state = initialState, action) => {
     switch (action.type) {
