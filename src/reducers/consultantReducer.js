@@ -1,4 +1,4 @@
-import { RESUME_ACTIONS }                                          from '~/infrastructure/ACTION_TYPES';
+import { RESUME_ACTIONS }                                       from '~/infrastructure/ACTION_TYPES';
 import Immutable                                                from 'immutable';
 
 const personReducerRecord = Immutable.Record({
@@ -18,25 +18,27 @@ const personReducerRecord = Immutable.Record({
         technique: null
     }),
     resumeReducerRecord = Immutable.Record({
-            person: new personReducerRecord(),
-            competence: [], //each item should be a competenceReducerRecord
-            education: [],    //each item should be a educationReducerRecord
-            employers: []  //each item should be a employerReducerRecord
+        person: new personReducerRecord(),
+        competence: [], //each item should be a competenceReducerRecord
+        education: [],    //each item should be a educationReducerRecord
+        employers: []  //each item should be a employerReducerRecord
     }),
     initialState = new resumeReducerRecord();
 
-function mapCompetence(competences) {
-    return competences.map(comp => {
-        return new competenceReducerRecord(comp);
+function mapToRecord(properties, record) {
+    return properties.map(prop => {
+        return new record(prop);
     })
 }
 
 export default (state = initialState, action) => {
     switch (action.type) {
         case RESUME_ACTIONS.SET_DATA: {
-            const { competence } = action.payload;
+            const { person, competence, education, employers } = action.payload;
 
-            return state.set("competence", mapCompetence(competence))
+            return state
+                .set("competence", mapToRecord(competence, competenceReducerRecord))
+                .set("person", new personReducerRecord(person))
         }
 
         default:
