@@ -1,9 +1,9 @@
 import React                                                                        from "react";
 import shouldPureComponentUpdate                                                    from "react-pure-render/function";
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
-import "./ConsultantsListView.scss";
+import "./ConsultantListView.scss";
 
-class ConsultantsListView extends React.Component {
+class ConsultantListView extends React.Component {
     constructor(...props) {
         super(...props);
         this.shouldComponentUpdate = shouldPureComponentUpdate.bind(this);
@@ -65,4 +65,4 @@ class ConsultantsListView extends React.Component {
     }
 }
 
-export default ConsultantsListView;
+export default ConsultantListView;
