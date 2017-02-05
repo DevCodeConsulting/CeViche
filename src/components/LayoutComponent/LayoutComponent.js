@@ -10,7 +10,10 @@ export class LayoutComponent extends Component {
 
   state = { drawerIsOpen: false }
 
-  handleMenuItemTap = data => () => { this.props.push(data.path) }
+  handleMenuItemTap = data => () => {
+    this.setState({ drawerIsOpen: false })
+    this.props.push(data.path)
+  }
 
   handleHamburgerTouch = () => this.setState({drawerIsOpen: !this.state.drawerIsOpen});
 
@@ -39,7 +42,7 @@ export class LayoutComponent extends Component {
         {this.props.children}
       </div>
     )
-    
+
   }
 }
 
