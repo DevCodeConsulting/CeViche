@@ -24,10 +24,22 @@ class ResumeView extends React.Component {
         this.shouldComponentUpdate = shouldPureComponentUpdate.bind(this);
 
         this._renderCompetences = this._renderCompetences.bind(this);
+        this._renderConsultantBasics = this._renderConsultantBasics.bind(this);
     }
 
     componentDidMount() {
         this.props.setResumeData();
+    }
+
+    _renderConsultantBasics() {
+        const person = this.props.consultantData.person;
+        return (
+            <div className="resume-profile-container">
+                <h2 className="resume-profile-name">{person.name}</h2>
+                <img height="120" className="resume-profile-picture" src={generateRootLevelLink("/images/simon_solders.jpg")} />
+                <div className="resume-profile-summary">{person.summary}</div>
+            </div>
+        );
     }
 
     _renderCompetences() {
@@ -70,9 +82,8 @@ class ResumeView extends React.Component {
             <LayoutComponent title={"Resume"}>
                 <div className="resume-view-container">
 
-                    <h2>{consultantData.person.name}</h2>
-                    <p>{consultantData.person.summary}</p>
-                    <img height="120" className="resume-profile-picture" src={generateRootLevelLink("/images/simon_solders.jpg")} />
+                    { this._renderConsultantBasics() }
+
 
                     <h2>Competence</h2>
                     { this._renderCompetences() }

@@ -39,7 +39,9 @@ export class LayoutComponent extends Component {
         <Drawer open={this.state.drawerIsOpen}>
           {menuItems}
         </Drawer>
-        {this.props.children}
+            <div className="application-content-coontainer">
+                {this.props.children}
+            </div>
       </div>
     )
 

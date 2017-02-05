@@ -1,9 +1,29 @@
 .resume-view-container {
 
 
-    .resume-profile-picture {
-        height: 120px;
-        border-radius: 75px;
+    .resume-profile-container {
+        width: 500px;
+
+        .resume-profile-name {
+            font-size: 1.5em;
+            font-weight: normal;
+            display: inline-block;
+        }
+
+        .resume-profile-picture {
+            height: 150px;
+            border-radius: 75px;
+            float: right;
+            position: relative;
+            margin: 25px 0 0 30px;
+        }
+
+        .resume-profile-summary {
+            font-style: italic;
+            width: 500px;
+        }
+
     }
+
 
 }
