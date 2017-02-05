@@ -9,7 +9,7 @@ import "./ResumeView.scss";
 
 function mapStateToProperties(store) {
     return {
-        resumeData: store.resumeReducer
+        consultantData: store.consultantReducer
     };
 }
 
@@ -26,7 +26,7 @@ class ResumeView extends React.Component {
     }
 
     _renderCompetences() {
-        const competence = this.props.resumeData.competence
+        const competence = this.props.consultantData.competence
 
         return competence.map((comp, i) => {
             return (
@@ -40,8 +40,7 @@ class ResumeView extends React.Component {
     }
 
     render () {
-        const { resumeData } = this.props,
-            { competence } = resumeData;
+        const { consultantData } = this.props;
 
         return (
             <LayoutComponent title={"Resume"}>
