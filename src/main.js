@@ -11,6 +11,8 @@ import axios                                                    from "axios";
 import configureStore                                           from './infrastructure/configureStore';
 import injectTapEventPlugin                                     from "react-tap-event-plugin";
 
+import "~/styles/main.scss";
+
 const browserHistory = useRouterHistory(createBrowserHistory)({
     basename: __BASENAME__
 });

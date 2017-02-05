@@ -1,7 +1,7 @@
 import { EXAMPLE_ACTIONS }                                      from '~/infrastructure/ACTION_TYPES';
 import Immutable                                                from 'immutable';
 
-const consultantsReducerRecord = Immutable.Record({
+const consultantListReducerRecord = Immutable.Record({
         consultants: [
             {
                 name: 'Simon Solders',
@@ -31,7 +31,7 @@ const consultantsReducerRecord = Immutable.Record({
             }
         ]
     }),
-    initialState = new consultantsReducerRecord();
+    initialState = new consultantListReducerRecord();
 
 export default (state = initialState, action) => {
     switch (action.type) {
