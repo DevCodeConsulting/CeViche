@@ -17,8 +17,8 @@ export default (history, store) => {
             <Route name="Start Page" staticName={true} path="/"  component={HomeView} />
 
             <Route name="Consultants" staticName={true} path="/consultants"  component={ConsultantListView} />
-            <Route name="Consultant Details" staticName={true} path="/consultant-details/:consultant"  component={ConsultantDetailView} />
-            <Route name="Resume" staticName={true} path="/resume/:consultant"  component={ResumeView} />
+            <Route name="Consultant Details" staticName={true} path="/consultant-details"  component={ConsultantDetailView} />
+            <Route name="Resume" staticName={true} path="/resume"  component={ResumeView} />
         </Router>
     );
 };
